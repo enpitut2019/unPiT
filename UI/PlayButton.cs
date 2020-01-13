@@ -7,7 +7,8 @@ public class PlayButton : MonoBehaviour
 {
 
     RaycastHit hit;
-    Vector3 center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+    //Vector3 center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+
     float distance = 1000;
 
     // Start is called before the first frame update
@@ -23,13 +24,16 @@ public class PlayButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(center);
+        //Vector3 center = ;   
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        Debug.DrawRay(ray.origin,ray.direction,Color.blue);
         if(Physics.Raycast(ray, out hit, distance))
         {
-            Debug.Log("bb");
+            //Debug.Log("bb");
+            //Debug.Log(hit.transform.position);
             if (hit.collider.tag == "Button")
             {
-                Debug.Log("now hitting");
+                //Debug.Log("now hitting");
             }
         }
     }

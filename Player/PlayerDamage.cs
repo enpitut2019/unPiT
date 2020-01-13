@@ -9,6 +9,7 @@ public class PlayerDamage : MonoBehaviour
     public Text playerHPText;
     public AudioClip sound1;
     AudioSource audioSource;
+    public GameObject plane;
     
 
     private void Start()
@@ -36,6 +37,7 @@ public class PlayerDamage : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(sound1,Camera.main.transform.position);
                 Destroy(this.gameObject);  //Erase Player
+                Destroy(plane.gameObject);
                 this.gameObject.SetActive(false);
                 SceneManager.LoadScene("GameOver");
 
