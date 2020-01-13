@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
+
+    RaycastHit hit;
+    Vector3 center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+    float distance = 1000;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +19,20 @@ public class PlayButton : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
     // Update is called once per frame
     void Update()
     {
-        
+        Ray ray = Camera.main.ScreenPointToRay(center);
+        if(Physics.Raycast(ray, out hit, distance))
+        {
+            Debug.Log("bb");
+            if (hit.collider.tag == "Button")
+            {
+                Debug.Log("now hitting");
+            }
+        }
     }
+
+
 }
