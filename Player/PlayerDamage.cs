@@ -10,7 +10,7 @@ public class PlayerDamage : MonoBehaviour
     public int playerHP;
     public Text playerHPText;
 
-    public int PlayerScore;
+    public int playerScore;
     public Text playerScoreText;
 
 
