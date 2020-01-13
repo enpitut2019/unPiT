@@ -5,16 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
+
+
     public int playerHP;
     public Text playerHPText;
-    public AudioClip sound1;
-    AudioSource audioSource;
-    public GameObject plane;
-    
 
+    public int PlayerScore;
+    public Text playerScoreText;
+
+
+    public AudioClip sound1;  //Damage sound
+    AudioSource audioSource;
+
+    public GameObject plane;  //to erase movie when I die
+    
     private void Start()
     {
-        playerHP = 3;        
+        playerHP = 3;
+        playerScore = 0;     
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = sound1;
     }
@@ -22,15 +30,16 @@ public class PlayerDamage : MonoBehaviour
     private void Update()
     {
         playerHPText.text = "残りHP:" + playerHP.ToString();
+        playerScoreText.text="Score:"+playerScore.ToString();
     }
 
 
     //　コライダのIsTriggerのチェックを入れ物理的な衝突をしない（突き抜ける）場合
     void OnTriggerEnter(Collider col) {
-        Debug.Log("hit something");
+        //Debug.Log(col.gameObject.tag);
 		if(col.tag == "Enemy") {
             playerHP -= 1;
-            playerHPText.text = "残りHP:" + playerHP.ToString();
+            //playerHPText.text = "残りHP:" + playerHP.ToString();
             // audioSource.PlayOneShot(sound1);
             audioSource.Play();
             if (playerHP == 0)
@@ -45,6 +54,15 @@ public class PlayerDamage : MonoBehaviour
             Debug.Log(playerHP);
 
         }
+        
+        if(col.tag == "Coin"){
+            //Debug.Log("you get coin");
+            playerScore+=1;
+            // playerScoreText.text="Score:"+playerScore.ToString();
+        }
+
+        Destroy(col.gameObject);
+
 	}
 
 }
