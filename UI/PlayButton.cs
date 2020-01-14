@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class PlayButton : MonoBehaviour
 {
 
-    RaycastHit hit;
+    //RaycastHit hit;
     //Vector3 center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
 
-    float distance = 1000;
+    //float distance = 1000;
 
     // Start is called before the first frame update
     void Start()

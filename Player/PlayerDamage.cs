@@ -17,11 +17,15 @@ public class PlayerDamage : MonoBehaviour
     public AudioClip sound1;  //Damage sound
     public AudioClip sound2;  //Get Coin sound
 
+    bool waitLoad; //true in the time between player7s death and loading gameover scene, false at the start
+    float waitTimeCount;
+
     private void Start()
     {
-        //playerHP = 2;
         playerScore = 0;     
         audioSource = gameObject.AddComponent<AudioSource>();
+        waitLoad = false;
+        waitTimeCount=0;
         //audioSource.clip = sound1;
     }
 
@@ -29,33 +33,33 @@ public class PlayerDamage : MonoBehaviour
     {
         playerHPText.text = playerHP.ToString();
         playerScoreText.text = playerScore.ToString();
+
+        if(waitLoad){ //when player dead
+            waitTimeCount+=Time.deltaTime;
+            if(waitTimeCount>0.5f){
+                Destroy(this.gameObject);  //Erase Player
+                //this.gameObject.SetActive(false);
+                SceneManager.LoadScene("GameOver");
+            } 
+        }
     }
 
-    //　コライダのIsTriggerのチェックを入れ物理的な衝突をしない（突き抜ける）場合
     void OnTriggerEnter(Collider col) {
-        //Debug.Log(col.gameObject.tag);
 		if(col.tag == "Enemy") {
             Instantiate(bomb, col.gameObject.transform.position, col.gameObject.transform.rotation);
             playerHP -= 1;
             audioSource.PlayOneShot(sound1);
             //audioSource.Play();
-            if (playerHP == 0)
+            if (playerHP <= 0)
             {
                 AudioSource.PlayClipAtPoint(sound1,Camera.main.transform.position);
-                Destroy(this.gameObject);  //Erase Player
-                this.gameObject.SetActive(false);
-                SceneManager.LoadScene("GameOver");
-
+                waitLoad=true;
             }
-            //Debug.Log(playerHP);
-
         }
         
         if(col.tag == "Coin"){
-            //Debug.Log("you get coin");
             audioSource.PlayOneShot(sound2);
             playerScore += 5;
-            // playerScoreText.text="Score:"+playerScore.ToString();
         }
 
         Destroy(col.gameObject);

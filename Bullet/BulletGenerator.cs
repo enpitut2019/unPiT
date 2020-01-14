@@ -20,7 +20,7 @@ public class BulletGenerator : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(delta);
+        //Debug.Log(delta);
         this.delta += Time.deltaTime;
 
         if(waitTime==true){  //最初の1回のみ

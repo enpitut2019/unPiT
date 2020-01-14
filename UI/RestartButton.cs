@@ -14,7 +14,7 @@ public class RestartButton : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Clicked");
+        //Debug.Log("Clicked");
         SceneManager.LoadScene("GameStart");
     }
     // Update is called once per frame
