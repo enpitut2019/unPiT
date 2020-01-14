@@ -7,15 +7,16 @@ public class BulletGenerator : MonoBehaviour
 {
 
     public GameObject BulletPrefabs;
-    //float span = 1.0f;
-    public float span ;
+    public float span;
     float delta;
     bool waitTime;
     public Text countDown; 
+    //float firstSpan;
 
     void Start(){
         delta=0;
         waitTime=true;
+        //firstSpan=span;
     }
 
     void Update()
@@ -30,9 +31,10 @@ public class BulletGenerator : MonoBehaviour
                 countDown.text="";
             } 
         }else{
-            if (this.delta > this.span)
-            {
+            if (this.delta > this.span){
                 this.delta = 0;
+                span*=0.99f;
+                //Debug.Log("span is "+firstSpan.ToString()+" => "+span.ToString());
                 GameObject item = Instantiate(BulletPrefabs) as GameObject;
                 float x = Random.Range(-50, 50);
                 item.transform.position = new Vector3(x, 15, 45);

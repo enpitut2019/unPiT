@@ -20,8 +20,8 @@ public class ScoreScript : MonoBehaviour
 
         int[] arr = new int[N];
         // execute for the first time
-        // for(int i=0;i<10;i++){ arr[i]=0; }
-        // for(int i=0;i<10;i++){ PlayerPrefs.SetInt("Data"+i.ToString(),arr[i]); }  //store to allHighScore
+        // for(int i=0;i<N;i++){ arr[i]=0; }
+        // for(int i=0;i<N;i++){ PlayerPrefs.SetInt("Data"+i.ToString(),arr[i]); }  //store to allHighScore
 
         for(int i=0;i<N;i++){ arr[i]=PlayerPrefs.GetInt("Data"+i.ToString()); }  //load from allHighScore
 
