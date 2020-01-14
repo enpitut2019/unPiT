@@ -37,11 +37,8 @@ public class ScoreScript : MonoBehaviour
         left="";
         right="";
         for(int i=0;i<N;i++){
-            if(i<N/2){
-                left+=(i+1).ToString()+"  "+arr[i]+"pt\n";
-            }else{
-                right+=(i+1).ToString()+"  "+arr[i]+"pt\n";
-            }
+            if(i<N/2){ left+=(i+1).ToString()+"  "+arr[i]+"pt\n"; }
+            else{ right+=(i+1).ToString()+"  "+arr[i]+"pt\n"; }
         }
 
         leftText.text=left;

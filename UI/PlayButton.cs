@@ -24,17 +24,17 @@ public class PlayButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector3 center = ;   
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        Debug.DrawRay(ray.origin,ray.direction,Color.blue);
-        if(Physics.Raycast(ray, out hit, distance))
-        {
-            //Debug.Log(hit.transform.position);
-            if (hit.collider.tag == "Button")
-            {
-                //Debug.Log("now hitting");
-            }
-        }
+        // //Vector3 center = ;   
+        // Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        // Debug.DrawRay(ray.origin,ray.direction,Color.blue);
+        // if(Physics.Raycast(ray, out hit, distance))
+        // {
+        //     //Debug.Log(hit.transform.position);
+        //     if (hit.collider.tag == "Button")
+        //     {
+        //         //Debug.Log("now hitting");
+        //     }
+        // }
     }
 
 
