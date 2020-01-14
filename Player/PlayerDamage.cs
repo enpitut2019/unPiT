@@ -22,7 +22,7 @@ public class PlayerDamage : MonoBehaviour
     
     private void Start()
     {
-        playerHP = 3;
+        playerHP =1;
         playerScore = 0;     
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = sound1;
@@ -48,12 +48,12 @@ public class PlayerDamage : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(sound1,Camera.main.transform.position);
                 Destroy(this.gameObject);  //Erase Player
-                Destroy(plane.gameObject);
+                //Destroy(plane.gameObject);
                 this.gameObject.SetActive(false);
                 SceneManager.LoadScene("GameOver");
 
             }
-            Debug.Log(playerHP);
+            //Debug.Log(playerHP);
 
         }
         

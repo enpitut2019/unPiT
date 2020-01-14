@@ -16,18 +16,19 @@ public class WebCamImage : MonoBehaviour
     {
         WebCamDevice[] devices = WebCamTexture.devices;
         webcamTexture = new WebCamTexture(devices[1].name, this.width, this.height, this.fps);
+        Debug.Log("webcamTexture is "+webcamTexture);
         GetComponent<Renderer>().material.mainTexture = webcamTexture;
         //if(webcamTexture.isPlaying==false) 
         webcamTexture.Play();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         Debug.Log("playing is "+webcamTexture.isPlaying);
     }
 
     void Update(){
-        //if(webcamTexture.isPlaying==false) 
-        webcamTexture.Play();
+        if(webcamTexture.isPlaying==false) webcamTexture.Play();
     }
 
 
 }
+
