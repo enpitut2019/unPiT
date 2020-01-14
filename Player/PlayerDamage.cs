@@ -27,8 +27,8 @@ public class PlayerDamage : MonoBehaviour
 
     private void Update()
     {
-        playerHPText.text = "残りHP:" + playerHP.ToString();
-        playerScoreText.text="Score:"+playerScore.ToString();
+        playerHPText.text = playerHP.ToString();
+        playerScoreText.text = playerScore.ToString();
     }
 
     //　コライダのIsTriggerのチェックを入れ物理的な衝突をしない（突き抜ける）場合

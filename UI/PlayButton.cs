@@ -29,7 +29,6 @@ public class PlayButton : MonoBehaviour
         Debug.DrawRay(ray.origin,ray.direction,Color.blue);
         if(Physics.Raycast(ray, out hit, distance))
         {
-            //Debug.Log("bb");
             //Debug.Log(hit.transform.position);
             if (hit.collider.tag == "Button")
             {
