@@ -22,7 +22,7 @@ public class PlayerDamage : MonoBehaviour
     
     private void Start()
     {
-        playerHP =1;
+        playerHP =2;
         playerScore = 0;     
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = sound1;

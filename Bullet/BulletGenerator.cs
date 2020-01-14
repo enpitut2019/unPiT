@@ -6,7 +6,8 @@ public class BulletGenerator : MonoBehaviour
 {
 
     public GameObject BulletPrefabs;
-    float span = 1.0f;
+    //float span = 1.0f;
+    public float span ;
     float delta = 0;
 
     void Update()

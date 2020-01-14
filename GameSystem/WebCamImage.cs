@@ -20,7 +20,7 @@ public class WebCamImage : MonoBehaviour
         GetComponent<Renderer>().material.mainTexture = webcamTexture;
         //if(webcamTexture.isPlaying==false) 
         webcamTexture.Play();
-        //DontDestroyOnLoad(gameObject);
+        
 
         Debug.Log("playing is "+webcamTexture.isPlaying);
     }

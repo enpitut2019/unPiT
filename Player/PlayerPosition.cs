@@ -8,6 +8,7 @@ public class PlayerPosition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InputTracking.Recenter();
         
     }
 
@@ -16,6 +17,6 @@ public class PlayerPosition : MonoBehaviour
     {
         Transform myTransform = this.transform;
         Vector3 position = InputTracking.GetLocalPosition(XRNode.CenterEye);
-        myTransform.position = new Vector3(position.x*200,-20,49);
+        myTransform.position = new Vector3(position.x*62,-20,49);
     }
 }
