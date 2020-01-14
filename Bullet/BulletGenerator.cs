@@ -17,7 +17,7 @@ public class BulletGenerator : MonoBehaviour
             this.delta = 0;
             GameObject item = Instantiate(BulletPrefabs) as GameObject;
             float x = Random.Range(-50, 50);
-            item.transform.position = new Vector3(x, 15, 49);
+            item.transform.position = new Vector3(x, 15, 45);
         }
     }
 }

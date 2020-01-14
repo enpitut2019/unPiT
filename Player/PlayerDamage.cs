@@ -13,6 +13,7 @@ public class PlayerDamage : MonoBehaviour
     public int playerScore;
     public Text playerScoreText;
 
+    public GameObject bomb;
 
     public AudioClip sound1;  //Damage sound
     AudioSource audioSource;
@@ -38,6 +39,7 @@ public class PlayerDamage : MonoBehaviour
     void OnTriggerEnter(Collider col) {
         //Debug.Log(col.gameObject.tag);
 		if(col.tag == "Enemy") {
+            Instantiate(bomb, col.gameObject.transform.position, col.gameObject.transform.rotation);
             playerHP -= 1;
             //playerHPText.text = "残りHP:" + playerHP.ToString();
             // audioSource.PlayOneShot(sound1);
