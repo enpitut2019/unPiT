@@ -8,7 +8,7 @@ public class PlayerDamage : MonoBehaviour
     public int playerHP;
     public Text playerHPText;
 
-    int playerScore;
+    public static int playerScore;
     public Text playerScoreText;
 
     public GameObject bomb;
@@ -54,7 +54,7 @@ public class PlayerDamage : MonoBehaviour
         if(col.tag == "Coin"){
             //Debug.Log("you get coin");
             audioSource.PlayOneShot(sound2);
-            playerScore+=1;
+            playerScore += 5;
             // playerScoreText.text="Score:"+playerScore.ToString();
         }
 
