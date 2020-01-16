@@ -9,13 +9,15 @@ public class BulletGenerator : MonoBehaviour
     public GameObject BulletPrefabs;
     public float span;
     float delta;
-    bool waitTime;
-    public Text countDown; 
+
+    //CountDown countDown;
+    
+
     //float firstSpan;
 
     void Start(){
         delta=0;
-        waitTime=true;
+        //waitTime=true;
         //firstSpan=span;
     }
 
@@ -24,12 +26,8 @@ public class BulletGenerator : MonoBehaviour
         //Debug.Log(delta);
         this.delta += Time.deltaTime;
 
-        if(waitTime==true){  //最初の1回のみ
-            countDown.text=(3-Mathf.Floor(delta)).ToString();
-            if(delta>3.0f){
-                waitTime=false;
-                countDown.text="";
-            } 
+        if(CountDown.waitTime){  //最初の1回のみ
+
         }else{
             if (this.delta > this.span){
                 this.delta = 0;
